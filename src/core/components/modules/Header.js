@@ -13,7 +13,9 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             掲示板
           </Typography>
-          <Button color="inherit">スレッドをたてる</Button>
+          <Button href="/thread/new" color="inherit">
+            スレッドをたてる
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
