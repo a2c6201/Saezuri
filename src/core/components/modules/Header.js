@@ -8,10 +8,16 @@ import React from "react";
 const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ mb: 3 }}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            掲示板
+          <Typography
+            noWrap
+            href="/"
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+          >
+            さえずり
           </Typography>
           <Button href="/thread/new" color="inherit">
             スレッドをたてる
