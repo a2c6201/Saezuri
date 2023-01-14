@@ -9,7 +9,6 @@ const ThreadNew = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -22,11 +21,19 @@ const ThreadNew = () => {
   };
 
   return (
-    <Grid>
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      spacing={3}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input label="タイトル" {...register("title", { required: true })} />
-        {errors.title && <span>タイトルを入力してください</span>}
-        <Grid>
+        <Grid item xs={6}>
+          <input {...register("title", { required: true })} />
+          {errors.title && <span>タイトルを入力してください</span>}
+        </Grid>
+        <Grid item xs={6}>
           <button type="submit">スレッド作成</button>
         </Grid>
       </form>

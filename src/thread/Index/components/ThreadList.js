@@ -16,9 +16,9 @@ const ThreadList = () => {
 
   return (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} direction="column" alignItems="center">
         {threads.map((thread, index) => (
-          <Grid item xs={15} key={index}>
+          <Grid item xs={8} key={index}>
             <ThreadCard title={thread.title} />
           </Grid>
         ))}
