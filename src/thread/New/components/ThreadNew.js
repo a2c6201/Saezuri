@@ -27,8 +27,7 @@ const ThreadNew = () => {
   };
 
   return (
-    // TODO POST
-    // バリデーショん
+    // TODO バリデーショん
     <Grid>
       <TextField label="タイトル" type="text" onChange={titleChangeHandler} />
       <Grid>
