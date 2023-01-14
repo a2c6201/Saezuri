@@ -1,38 +1,35 @@
-import { Grid, TextField } from "@mui/material";
+import { Grid } from "@mui/material";
 import axios from "axios";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const ThreadNew = () => {
   const navigate = useNavigate();
 
-  // useStateを使って値を保持
-  const [title, setTitle] = useState({
-    title: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-  // 登録処理
-  const CreateThread = async () => {
+  const onSubmit = async (data) => {
     await axios.post(
       "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads",
-      title
+      data
     );
     navigate(-1);
   };
 
-  // 入力内容をset
-  const titleChangeHandler = (event) => {
-    setTitle({ ...title, title: event.target.value });
-    console.log(event.target.value);
-  };
-
   return (
-    // TODO バリデーショん
     <Grid>
-      <TextField label="タイトル" type="text" onChange={titleChangeHandler} />
-      <Grid>
-        <button onClick={CreateThread}>作成</button>
-      </Grid>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input label="タイトル" {...register("title", { required: true })} />
+        {errors.title && <span>タイトルを入力してください</span>}
+        <Grid>
+          <button type="submit">スレッド作成</button>
+        </Grid>
+      </form>
     </Grid>
   );
 };
