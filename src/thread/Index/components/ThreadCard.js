@@ -1,14 +1,16 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { getStyles } from "./style";
 
 const styles = getStyles();
 
-const ThreadCard = ({ title }) => {
+const ThreadCard = ({ thread }) => {
   return (
     <Card variant="outlined" sx={styles.card}>
-      <CardContent>
-        <Typography noWrap>{title}</Typography>
-      </CardContent>
+      <CardActionArea href={`/thread/${thread.id}`}>
+        <CardContent>
+          <Typography noWrap>{thread.title}</Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };

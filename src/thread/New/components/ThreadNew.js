@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,7 @@ const ThreadNew = () => {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid item xs={6}>
-          <input {...register("title", { required: true })} />
+          <TextField {...register("title", { required: true })} />
           {errors.title && <span>タイトルを入力してください</span>}
         </Grid>
         <Grid item xs={6}>
