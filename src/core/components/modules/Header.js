@@ -14,7 +14,7 @@ const Header = () => {
             noWrap
             href="/"
             variant="h6"
-            component="div"
+            component="a"
             sx={{ flexGrow: 1 }}
           >
             さえずり
