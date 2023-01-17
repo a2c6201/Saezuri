@@ -1,26 +1,16 @@
 import { Grid, Typography } from "@mui/material";
-import { useParams } from "react-router-dom";
-import useSWR from "swr";
-import fetcher from "../../../core/libs/featcher";
+import PostCard from "./PostCard";
 
-const PostList = () => {
-  const { id } = useParams();
-  const { data: data, error } = useSWR(
-    `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${id}/posts`,
-    fetcher
-  );
-
-  if (error) return <Typography>faild to load</Typography>;
-  if (!error && !data) return <Typography>Loading</Typography>;
+const PostList = ({ postObj }) => {
+  if (!postObj.id)
+    return <Typography>このスレッドには投稿がありません</Typography>;
   return (
     <>
       <Grid container spacing={3} direction="column" alignItems="center">
-        {console.log(data)}
-        <Typography>投稿一覧</Typography>
-        {data.posts.map((post) => (
+        <Typography sx={{ mt: 3 }}>投稿一覧</Typography>
+        {postObj.posts.map((post) => (
           <Grid item xs={8} key={post.id}>
-            <Typography>{post.id}</Typography>
-            {console.log(post.post)}
+            <PostCard post={post.post} />
           </Grid>
         ))}
       </Grid>
