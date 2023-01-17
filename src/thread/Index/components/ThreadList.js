@@ -7,7 +7,7 @@ import ThreadCard from "./ThreadCard";
 // useSWRを使うのはどうか、URL直打ちでいいのか、.envファイルに分けるか
 const ThreadList = () => {
   const { data: threads, error } = useSWR(
-    `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads?offset=300`,
+    `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads`,
     fetcher
   );
 
