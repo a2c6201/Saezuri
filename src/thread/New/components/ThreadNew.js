@@ -1,6 +1,6 @@
 import { Grid, TextField } from "@mui/material";
 import axios from "axios";
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"; //usestate
 import { useNavigate } from "react-router-dom";
 
 const ThreadNew = () => {
@@ -17,8 +17,10 @@ const ThreadNew = () => {
       "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads",
       data
     );
-    navigate(-1);
+    navigate("/");
   };
+
+  // onchangeを使ってuseState
 
   return (
     <Grid
