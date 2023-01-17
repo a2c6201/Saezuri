@@ -1,4 +1,4 @@
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useForm } from "react-hook-form"; //usestate
 import { useNavigate } from "react-router-dom";
@@ -20,8 +20,6 @@ const ThreadNew = () => {
     navigate("/");
   };
 
-  // onchangeを使ってuseState
-
   return (
     <Grid
       container
@@ -30,12 +28,20 @@ const ThreadNew = () => {
       alignItems="center"
       spacing={3}
     >
+      <Typography sx={{ my: 3 }}>スレッド作成</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid item xs={6}>
-          <TextField {...register("title", { required: true })} />
-          {errors.title && <span>タイトルを入力してください</span>}
+          <TextField
+            sx={{ minWidth: 360 }}
+            {...register("title", { required: true })}
+          />
+          <Grid>
+            {errors.title && (
+              <Typography>タイトルを入力してください</Typography>
+            )}
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sx={{ mt: 3 }}>
           <button type="submit">スレッド作成</button>
         </Grid>
       </form>

@@ -1,4 +1,4 @@
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -36,10 +36,7 @@ const PostForm = ({ threadId }) => {
             sx={{ display: "flex", minWidth: 360 }}
             {...register("post", { required: true })}
           />
-          {errors.post && <span>入力してください</span>}
-          {/* {isSubmitSuccessful && (
-            <Navigate to={`/thread/${threadId}`} replace={true} />
-          )} */}
+          {errors.post && <Typography>1文字以上入力してください</Typography>}
         </Grid>
         <Grid item xs={6} sx={{ mt: 3 }}>
           <button type="submit">投稿</button>
