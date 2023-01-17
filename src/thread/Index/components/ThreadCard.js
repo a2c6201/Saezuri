@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import { getStyles } from "./style";
+import getGlobalStyles from "../../style/GlobalStyles";
 
-const styles = getStyles();
+const styles = getGlobalStyles();
 
 const ThreadCard = ({ thread }) => {
   return (
