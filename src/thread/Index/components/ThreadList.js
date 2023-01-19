@@ -14,10 +14,15 @@ const ThreadList = () => {
   if (error) return <div>failed to load</div>;
   if (!error && !threads) return <div>Loading ...</div>;
 
-  console.log(threads);
   return (
     <>
-      <Grid container spacing={3} direction="column" alignItems="center">
+      <Grid
+        container
+        spacing={3}
+        sx={{ mb: 3 }}
+        direction="column"
+        alignItems="center"
+      >
         {threads.map((thread, index) => (
           <Grid item xs={8} key={index}>
             <ThreadCard thread={thread} />
