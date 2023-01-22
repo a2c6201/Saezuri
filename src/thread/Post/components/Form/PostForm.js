@@ -1,4 +1,4 @@
-import { Grid, TextField, Typography } from "@mui/material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,8 @@ const PostForm = ({ threadId }) => {
       data
     );
     window.location.reload(); //　ここの実装は適切か（react router domを使ってやリたかったがあまり情報を見つけられなかった）
+    // ここでuseSWRを使ってもいいかも（GET）
+    // 全体がレンダリングされるとパフォーマンスとしても、、ユーザーもびっくり
   };
 
   return (
@@ -39,7 +41,7 @@ const PostForm = ({ threadId }) => {
           {errors.post && <Typography>1文字以上入力してください</Typography>}
         </Grid>
         <Grid item xs={6} sx={{ mt: 3 }}>
-          <button type="submit">投稿</button>
+          <Button type="submit">投稿</Button>
         </Grid>
       </form>
     </Grid>

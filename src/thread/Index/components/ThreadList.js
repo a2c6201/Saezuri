@@ -3,8 +3,6 @@ import useSWR from "swr";
 import fetcher from "../../../core/libs/featcher";
 import ThreadCard from "./ThreadCard";
 
-// 確認したいこと
-// useSWRを使うのはどうか、URL直打ちでいいのか、.envファイルに分けるか
 const ThreadList = () => {
   const { data: threads, error } = useSWR(
     `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads`,

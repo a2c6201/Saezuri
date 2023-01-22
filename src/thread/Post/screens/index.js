@@ -23,4 +23,14 @@ const Post = () => {
   );
 };
 
+// {
+// "threadId": "string",
+// "posts": [
+//   {
+//     "id": "string",
+//     "post": "string"
+//   }
+// ]
+// }
+
 export default Post;
